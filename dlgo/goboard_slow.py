@@ -89,7 +89,9 @@ class GoString:
         :return: compare strings
         """
         return isinstance(other, GoString) and \
-               self.color == other.color and self.stones == other.stones and self.liberties == other.liberties
+            self.color == other.color and \
+            self.stones == other.stones and \
+            self.liberties == other.liberties
 
 
 class Board:
@@ -108,7 +110,8 @@ class Board:
         :param point: point
         :return: is point on grid
         """
-        return 1 <= point.row <= self.num_rows and 1 <= point.col <= self.num_cols
+        return 1 <= point.row <= self.num_rows and \
+            1 <= point.col <= self.num_cols
 
     def get(self, point):
         """

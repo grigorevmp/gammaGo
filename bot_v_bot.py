@@ -16,7 +16,8 @@ def main():
     while not game.is_over():
         time.sleep(0.3)
 
-        print(chr(27) + "[2J")
+        import os
+        os.system('cls' if os.name == 'nt' else 'clear')
         print_board(game.board)
         bot_move = bots[game.next_player].select_move(game)
         print_move(game.next_player, bot_move)
