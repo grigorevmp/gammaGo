@@ -120,7 +120,7 @@ class Board:
             return None
         return string.color
 
-    def get_got_string(self, point):
+    def get_go_string(self, point):
         """
         :param point: point
         :return: return string
@@ -171,7 +171,7 @@ class Board:
         :param string: string
         :return: removed string
         """
-        for point in string.sones:
+        for point in string.stones:
             for neighbor in point.neighbors():
                 neighbor_string = self._grid.get(neighbor)
                 if neighbor_string is None:
@@ -216,7 +216,7 @@ class GameState:
         if isinstance(board_size, int):
             board_size = (board_size, board_size)
         board = Board(*board_size)
-        return GameState(board, Player.back, None, None)
+        return GameState(board, Player.black, None, None)
 
     def is_over(self):
         """
