@@ -11,7 +11,7 @@ import os
 from flask import Flask, request
 
 
-server = Flask(__name__)
+server = Flask("gammago")
 
 
 @bot.message_handler(commands=['start'])
@@ -81,6 +81,13 @@ def play_message(message):
 """
 
 bot.polling()
+
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://test-new-new.herokuapp.com/' + bot)
+    return "!", 200
 
 
 if __name__ == '__main__':
