@@ -1,1 +1,1 @@
-bot: python telegram.py
+web: gunicorn telegram:server
