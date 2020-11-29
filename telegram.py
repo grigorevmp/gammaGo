@@ -1,6 +1,6 @@
 import telebot
-from hidden import bot
-from hidden import TOKEN
+from hidden2 import bot
+from hidden2 import TOKEN
 # tag::play_against_your_bot[]
 from dlgo import agent
 from dlgo import goboard_slow as goboard

@@ -2,7 +2,7 @@ import flask
 from telebot import types
 from config import *
 import os
-from hidden import *
+from hidden2 import *
 
 server = flask.Flask(__name__)
 
