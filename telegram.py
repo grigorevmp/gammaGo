@@ -1,5 +1,6 @@
 import telebot
 from hidden import bot
+from hidden import TOKEN
 # tag::play_against_your_bot[]
 from dlgo import agent
 from dlgo import goboard_slow as goboard
@@ -29,7 +30,7 @@ def play_message(message):
     xbot = agent.RandomBot()
     print_board(game.board)
     bot.send_message(message.chat.id, print_board(game.board))
-    bot.send_message(message.chat.id, 'Сделай ход: (Например, A0)')
+    bot.send_message(message.chat.id, 'Сделай ход: (Например, A1)')
 
 
 @bot.message_handler(content_types=['text'])
@@ -39,7 +40,7 @@ def play_message(message):
     global xbot
 
     try:
-        human_move = message.text
+        human_move = message.text.upper()
         point = point_from_coords(human_move.strip())
         move = goboard.Move.play(point)
 
@@ -54,7 +55,7 @@ def play_message(message):
         bot.send_message(message.chat.id, print_move(game.next_player, move))
         bot.send_message(message.chat.id, print_board(game.board))
 
-        bot.send_message(message.chat.id, 'Сделай ход: (Например, A0)')
+        bot.send_message(message.chat.id, 'Сделай ход: (Например, A1)')
 
     except Exception:
         bot.send_message(message.chat.id, 'Неразумный ввод =)')
