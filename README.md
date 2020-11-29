@@ -17,6 +17,7 @@ File structure:
     * **gotypes** - Basic types
     * **utils** - Functions to print board
 * **bot_v_bot** - Simple algorithm to 2 bots game
+* **human_v_bot** - Simple algorithm to player vs bot game
 
 ---
 **Used materials from "Deep learning and game of GO book"** 
