@@ -1,6 +1,6 @@
 import telebot
 from hidden2 import bot
-from hidden2 import TOKEN
+from hidden2 import TOKEN, APP_NAME
 # tag::play_against_your_bot[]
 from dlgo import agent
 from dlgo import goboard_slow as goboard
@@ -10,8 +10,8 @@ from six.moves import input
 import os
 from flask import Flask, request
 
-
 server = Flask(__name__)
+
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -91,8 +91,15 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://gammago.herokuapp.com/bot')
-    return "!", 200
+    bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
+    return "Hello from Heroku!", 200
+
+
+@server.route('/', methods=["GET"])
+def index():
+    bot.remove_webhook()
+    bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
+    return "Hello from Heroku!", 200
 
 
 if __name__ == '__main__':
