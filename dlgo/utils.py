@@ -24,6 +24,7 @@ def print_move(player, move):
     else:
         move_str = '%s%d' % (COLS[move.point.col - 1], move.point.row)
     print('%s %s' % (player, move_str))
+    return '%s %s' % (player, move_str)
 
 
 def print_board(board):
@@ -32,6 +33,7 @@ def print_board(board):
     :param board:
     :return:
     """
+    result = ""
     for row in range(board.num_rows, 0, -1):
         bump = " " if row <= 9 else ""
         line = []
@@ -39,7 +41,10 @@ def print_board(board):
             stone = board.get(gotypes.Point(row=row, col=col))
             line.append(STONE_TO_CHAR[stone])
         print('%s%d %s' % (bump, row, ''.join(line)))
+        result += ('%s%d %s' % (bump, row, ''.join(line))) + "\n"
     print('    ' + '  '.join(COLS[:board.num_cols]))
+    result += ('    ' + '  '.join(COLS[:board.num_cols]))
+    return result
 # end::print_utils[]
 
 
