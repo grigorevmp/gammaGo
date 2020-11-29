@@ -21,6 +21,7 @@ def start_message(message):
 board_size = None
 game = None
 xbot = None
+r = ""
 
 
 @bot.message_handler(commands=['play'])
