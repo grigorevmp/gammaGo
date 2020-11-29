@@ -1,1 +1,1 @@
-web: gunicron telegram.py
+bot: python telegram.py
