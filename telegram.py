@@ -11,8 +11,7 @@ import os
 from flask import Flask, request
 
 
-server = Flask("gammago")
-
+server = Flask(__name__)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -83,10 +82,16 @@ def play_message(message):
 bot.polling()
 
 
+@server.route("/bot", methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
+
+
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://test-new-new.herokuapp.com/' + bot)
+    bot.set_webhook(url='https://gammago.herokuapp.com/bot')
     return "!", 200
 
 
