@@ -13,7 +13,8 @@ __all__ = ['RandomBot']
 # tag::random_bot[]
 class RandomBot(Agent):
     def select_move(self, game_state):
-        """Choose a random valid move that preserves our own eyes."""
+        """Choose a random valid move that preserves our own eyes.
+        2 cycle to analyze all points. We check every point. And then choose random candidate"""
         candidates = []
         for r in range(1, game_state.board.num_rows + 1):
             for c in range(1, game_state.board.num_cols + 1):
@@ -27,4 +28,3 @@ class RandomBot(Agent):
             return Move.pass_turn()
         return Move.play(random.choice(candidates))
 # end::random_bot[]
-

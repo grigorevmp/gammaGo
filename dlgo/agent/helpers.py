@@ -1,15 +1,20 @@
+# tag::helpersimport[]
 from dlgo.gotypes import Point
+# end::helpersimport[]
+
 __all__ = [
     'is_point_an_eye',
 ]
 
 
+# tag::eye[]
 def is_point_an_eye(board, point, color):
     """
+    Check is point an eye
     :param board: board
     :param point: point
     :param color: color
-    :return: if the point is an eye
+    :return: is point an eye
     """
     if board.get(point) is not None:  # <1>
         return False
@@ -38,6 +43,9 @@ def is_point_an_eye(board, point, color):
         return off_board_corners + friendly_corners == 4  # <4>
     return friendly_corners >= 3  # <5>
 
-# <1> An eye is an empty point. <2> All adjacent points must contain friendly stones. <3> We must control 3 out of 4
-# corners if the point is in the middle of the board; on the edge we must control all corners. <4> Point is on the
-# edge or corner. <5> Point is in the middle. end::eye[]
+# <1> An eye is an empty point.
+# <2> All adjacent points must contain friendly stones.
+# <3> We must control 3 out of 4 corners if the point is in the middle of the board; on the edge we must control all corners.
+# <4> Point is on the edge or corner.
+# <5> Point is in the middle.
+# end::eye[]
