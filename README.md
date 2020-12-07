@@ -4,6 +4,7 @@ Simple go playing bot based on AlphaGo technology
 ---
 File structure:
 
+* **NeuronNetwork** - Experiments with nn
 * **djgo** - Bot library
     * **agent** -  Our Bot
         * **base** - Bot main class
