@@ -1,5 +1,5 @@
 .idea
 venv
 hidden2.py
-/hidden2.py
-/venv
+\hidden2.py
+\venv

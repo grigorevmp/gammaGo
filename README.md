@@ -2,9 +2,11 @@
 ---
 Simple go playing bot based on AlphaGo technology
 ---
-File structure:
+---
+**File structure:**
 
-* **NeuronNetwork** - Experiments with nn
+* **NeuronNetwork** - Experiments with neuron networks
+  
 * **djgo** - Bot library
     * **agent** -  Our Bot
         * **base** - Bot main class
